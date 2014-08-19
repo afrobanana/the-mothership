@@ -17,7 +17,7 @@
   <meta property="og:type" content="website" >
   <meta property="og:url" content="http://www.afrobananarepublic.com/">
   <meta property="og:title" content="The Mothership .:. The Afro Banana Republic" >
-  <meta property="og:image" content="http://www.afrobananarepublic.com/static/images/logos/afrobanana-550x550.jpg" >
+  <meta property="og:image" content="http://www.afrobananarepublic.com/staticimages/logos/afrobanana-550x550.jpg" >
   <meta property="og:description" content="The Afro Banana Republic is a team composed of artists from various fields who set out to develop the Cypriot creative alternative scene. By encouraging collaborations between different fields we aim to explore the potential of home grown talent. By providing a platform for these artists to produce and present their work, we allow for them to promote their art and themselves in Cyprus and the rest of the world." >
   <meta name="description" content="The Afro Banana Republic is a team composed of artists from various fields who set out to develop the Cypriot creative alternative scene. By encouraging collaborations between different fields we aim to explore the potential of home grown talent. By providing a platform for these artists to produce and present their work, we allow for them to promote their art and themselves in Cyprus and the rest of the world.">
   <meta name="keywords" content="The Afro Banana Republic, Cyprus">
@@ -595,7 +595,7 @@
         <div v-html="location.text"></div>
       </div>
       <div class="location-map">
-        <a href="https://goo.gl/maps/kXAwA" target="_blank"><span>Google Map</span><img src="/images/bg_location.jpg"></a>
+        <a href="https://goo.gl/maps/kXAwA" target="_blank"><span>Google Map</span><img src="images/bg_location.jpg"></a>
       </div>
     </section>
   </section>
@@ -644,7 +644,7 @@
       <div class="text"></div>
       <div class="sponsors-entries">
         <div class="sponsors-entry" v-repeat="sponsors">
-          <img v-attr="src:'/images/sponsors/{{ $key }}.png'">
+          <img v-attr="src:'images/sponsors/{{ $key }}.png'">
         </div>
       </div>
     </section>
@@ -695,9 +695,9 @@
 <script type="text/html" id="lineup-entries-template">
   <ol id="lineup-entries" class="lineup-entries">
     <li class="lineup-entry line-entry-{{ entry.$key }}" v-repeat="entry:lineUpEntries" v-show="entry.name">
-      <a class="lineup-entry-name" href="#/lineup/{{ entry.$key }}" v-if="entry.name" v-attr="style:'background: url(/images/lineup/{{ entry.$key }}/{{ entry.$key }}.jpg) no-repeat center 1.1em;background-size: contain;height:150px'">{{ entry.name }}</a>
+      <a class="lineup-entry-name" href="#/lineup/{{ entry.$key }}" v-if="entry.name" v-attr="style:'background: url(images/lineup/{{ entry.$key }}/{{ entry.$key }}.jpg) no-repeat center 1.1em;background-size: contain;height:150px'">{{ entry.name }}</a>
       <!--
-      <a class="lineup-entry-name" href="#/lineup/{{ entry.$key }}" v-if="entry.name">{{ entry.name }}<img v-attr="src:'/images/lineup/{{ entry.$key }}/{{ entry.$key }}.jpg'" width="200" height="86"></a>
+      <a class="lineup-entry-name" href="#/lineup/{{ entry.$key }}" v-if="entry.name">{{ entry.name }}<img v-attr="src:'images/lineup/{{ entry.$key }}/{{ entry.$key }}.jpg'" width="200" height="86"></a>
       -->
       <em class="lineup-entry-label" v-repeat="label:entry.labels" v-html="label"></em>
     </li>
