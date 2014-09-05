@@ -348,7 +348,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.7);
     }
     .location-map a {
       line-height: 1;
@@ -366,6 +366,22 @@
     .location-map img {
       display: block;
       width: 100%;
+    }
+    .col-left {
+      float: left;
+    }
+    .col-right,
+    .col-left {
+      text-align: left;
+      font-size: 0.75em;
+      width: 47%;
+    }
+    .col-right {
+      float: right;
+    }
+    .clear {
+      float: none;
+      clear: both;
     }
   </style>
   <style type="text/css">
@@ -595,7 +611,7 @@
         <div v-html="location.text"></div>
       </div>
       <div class="location-map">
-        <a href="https://goo.gl/maps/kXAwA" target="_blank"><span>Google Map</span><img src="images/bg_location.jpg"></a>
+        <a href="https://goo.gl/maps/4djk7" target="_blank"><span>Google Map</span><img src="images/bg_location.jpg"></a>
       </div>
     </section>
   </section>
@@ -819,7 +835,7 @@
       },
       dj_magos: {
         name: 'DJ Magos',
-        text: '<p>His Philosophy is: Soul. Against modern music. Turntable culture. Heavy drum breaks. Digging in the crates. Magic. DJ Magos will be delivering some funky tunes dedicated to those not afraid to dance their hearts out.</p><p>London, CY</p>',
+        text: '<p>Heavy funk &amp; party tunes. Dedicated to everyone who puts their heart into it when they dance. The purpose is to get unstuck. Philosophy is: Soul, Against modern music, Turntable culture, Heavy drum breaks, Digging in the Crates, Magic.</p><p>London, CY</p>',
         labels: [
           'DJ Set', 'Funk', 'Dance', 'Panairkotikes Funkilles &amp; Kafrilles'
         ],
@@ -1089,7 +1105,7 @@
       }
     ],
     location: {
-      text: '<p><strong>Athalassas Forest, Yeri, Nicosia, Cyprus</strong></p><p>Direct yourselves towards the traffic lights where the road from the General Hospital roundabout towards Yeri, meets the road from the Cyprus University roundabout towards Yeri.</p><p>And then as always...Follow the Bananas!</p>'
+      text: '<div class="col-left"><p>From <strong>Nicosia</strong> or <strong>Limassol</strong>, on the main highway, take the exit no. 11 for Kornos/Pyrga/Stavrovouni.</p><p>After you take the exit DO NOT turn towards Kornos but follow the sign towards Pyrga until you reach the old Nicosia-Limassol road a few hundred metres from your original exit of the main highway.</p><p>At the old Nicosia-Limassol road junction turn right towards Limassol / Stavrovouni. Follow the road for about 3 kilometres.</p></div><div class="col-right"><p>From <strong>Larnaca</strong>, take the exit from the Kalo Chorio roundabout towards Kalo Chorio. Progress through the villages until you find the old Nicosia-Limassol roundabout of Mosfiloti. Turn left and follow the old Nicosia-Limassol road towards Limassol for about 4 kilometers.</p></div><div class="clear"><p>And as always...Follow the Bananas!</p></div>'
     },
     facilities: [
       {
