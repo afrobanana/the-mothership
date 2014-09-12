@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Wall .:. The Mothership - The Afro Banana Republic 2014</title>
+  <link href='//fonts.googleapis.com/css?family=Rajdhani:500,700' rel='stylesheet' type='text/css'>
+
+  <style type="text/css">
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    body {
+      font-family: 'Rajdhani', Arial, sans-serif;
+      line-height: 1;
+      margin: 0;
+      background-color: #000;
+      color: #eee;
+    }
+    header {}
+    h1, h2 {
+      margin: 0;
+      line-height: 1;
+      position: fixed;
+      z-index: 2;
+    }
+    h1 {
+      bottom: 3%;
+      left: 1.66%;
+      text-indent: -999em;
+      direction: ltr;
+      width: 311px;
+      height: 97px;
+      background: url("logo_cytanet.png") no-repeat center center;
+      background-size: contain;
+    }
+    h2 {
+      color: #C6E2D1;
+      right: 1.66%;
+      bottom: 3%;
+      width: 23%;
+      padding-bottom: 2.4em;
+      text-align: right;
+      font-size: 1.5em;
+      font-weight: 100;
+      text-shadow: 0 0 10px #000;
+    }
+    h2 em {
+      font-size: 2em;
+      font-weight: 700;
+      text-shadow: 2px 1px 0 #735a58,3px 2px 0 rgba(198,226,209,.7);
+      font-style: normal;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+    hr {
+      clear: both;
+      margin: 0;
+      visibility: hidden;
+    }
+    #images {
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      width: 100%;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      opacity: 0.5;
+    }
+    .image-wrapper {
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+      box-sizing: border-box;
+      transition: all 700ms;
+    }
+
+    .image-wrapper span {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+    .image-wrapper-active:first-child,
+    .image-wrapper:first-child {
+      display: none;
+    }
+    #image {
+      position: fixed;
+      z-index: 1;
+    }
+    .image-wrapper-active {
+      position: fixed;
+      top: 8%;
+      right: 8%;
+      bottom: 8%;
+      left: 8%;
+      opacity: 1;
+      background-size: contain;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      transition: all 1s;
+    }
+    .image-wrapper-active.hide {
+      top: 100%;
+      right: 100%;
+      bottom: 100%;
+      left: 100%;
+      opacity: 0;
+    }
+    @media all and (max-width: 499px) {
+      .image-wrapper {
+        width: 33.33%;
+        height: 130px;
+      }
+    }
+    @media all and (min-width: 500px) and (max-width: 1399px) {
+      .image-wrapper {
+        width: 20%;
+        height: 160px;
+      }
+    }
+    @media all and (min-width: 1400px) {
+      .image-wrapper {
+        width: 10%;
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Cytamobile - Vodaphone</h1>
+    <h2>Mοιραστείτε τις αναμνήσεις και εμπειρίες σας στο Φεστιβάλ, με το υπόλοιπο κοινό μέσω instagram με το <em>#themothership</em></h2>
+  </header>
+  <div id="images"><div class="image-wrapper"></div></div>
+  <div id="image"><div class="image-wrapper-active"></div></div>
+  <script type="text/javascript" src="wall.js"></script>
+  <script type="text/javascript">wall.init();</script>
+</body>
+</html>
