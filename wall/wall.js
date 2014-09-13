@@ -16,10 +16,13 @@
   wall.checked = [];
   wall.params = queryAsObject(window.location.search.slice(1));
   wall.tags = wall.params.tags ? wall.params.tags.split(',') : [];
+  wall.tags = wall.tags.map(function(tag) {
+    return tag.replace(/[^\w]/gi, '');
+  })
   wall.sources = {
     facebook: {
       url: '/facebook/?tag={{ tag }}&user=TheAfroBananaRepublic&type=photo',
-      ready: function(results) {
+      ready: function() {
         var wall_ids = wall.ids,
             images = wall.images,
             allImages = wall.allImages,
@@ -30,6 +33,9 @@
         responses.forEach(function(response, i) {
           var result_ids = ids[i] = {};
           response.data.forEach(function(result) {
+            if (responses.length === 1) {
+              ids[result.$id] = result;
+            }
             if (wall_ids.indexOf(result.$id) === -1 && ids[result.$id]) {
               results.push(result);
               wall_ids.push(result.$id);
@@ -39,7 +45,9 @@
           });
         });
 
-        results.forEach(function(result) {
+        results//.slice(0,2)
+        .reverse()
+        .forEach(function(result) {
           result.image = {
             large: result.images[0].url_large || result.images[0].url
           };
@@ -48,7 +56,7 @@
           wall.allImages.push(result);
         });
 
-        console.debug('facebook', results);
+        console.debug('facebook', responses.length, results);
 
         wall.changeImage();
       }
@@ -65,7 +73,10 @@
 
         responses.forEach(function(response, i) {
           var result_ids = ids[i] = {};
-          response.forEach(function(result) {
+          response && response.forEach(function(result) {
+            if (responses.length === 1) {
+              ids[result.$id] = result;
+            }
             if (wall_ids.indexOf(result.$id) === -1 && ids[result.$id]) {
               results.push(result);
               wall_ids.push(result.$id);
@@ -75,7 +86,9 @@
           });
         });
 
-        results.forEach(function(result) {
+        results//.slice(0, 2)
+        .reverse()
+        .forEach(function(result) {
           result.image = {
             large: result.images.standard_resolution.url
           };
@@ -84,7 +97,7 @@
           wall.allImages.push(result);
         });
 
-        console.debug('instagram', results);
+        console.debug('instagram', responses.length, results);
 
         wall.changeImage();
       }
@@ -103,8 +116,9 @@
     if (wall.onLoadTime || !wall.allImages.length) { return; }
     wall.onLoadTime = true;
 
-    var image_index = getRandomArbitrary(0, wall.images.length - 1),
-        image = wall.images[image_index],
+    var //image_index = getRandomArbitrary(0, wall.images.length - 1),
+        //image = wall.images[image_index],
+        image = wall.images.pop(),
         $images = document.getElementsByClassName('image-wrapper'),
         $clone = $images[0].cloneNode(),
         $image = document.createElement('span'),
@@ -140,7 +154,7 @@
       requestAnimationFrame(wall.fetch);
 
     } else {
-      wall.images.splice(image_index, 1);
+      // wall.images.splice(image_index, 1);
       (function($clone) {
         imageSrc.onload = imageSrc.onerror = function() {
           $image.style.backgroundImage = 'url("' + image.image.large + '")';
@@ -188,8 +202,8 @@
         instagram_clone;
 
     Object.keys(sources).forEach(function(name) {
-      var cb = '_' + Date.now()
-      var source = sources[name],
+      var cb = '_' + Date.now(),
+          source = sources[name],
           responses = [];
 
       wall[cb] = function(results) {
